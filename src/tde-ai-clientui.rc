@@ -1,0 +1,50 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="tde-ai-client" version="1">
+  <MenuBar>
+    <Menu name="file" noMerge="1">
+      <text>&amp;File</text>
+      <Action name="file_new"/>
+      <Separator/>
+      <Action name="conversation_export"/>
+      <Action name="conversation_rename"/>
+      <Action name="conversation_delete"/>
+      <Separator/>
+      <Action name="file_quit"/>
+    </Menu>
+    <Menu name="edit" noMerge="1">
+      <text>&amp;Edit</text>
+      <Action name="edit_copy"/>
+    </Menu>
+    <Menu name="chat_menu">
+      <text>&amp;Message</text>
+      <Action name="chat_send"/>
+      <Action name="chat_stop"/>
+      <Action name="chat_regenerate"/>
+      <Separator/>
+      <Action name="chat_attach"/>
+      <Action name="chat_clear_attachments"/>
+    </Menu>
+    <Menu name="service_menu">
+      <text>&amp;Service</text>
+      <Action name="backend_horde"/>
+      <Action name="backend_koboldcpp"/>
+      <Action name="backend_openai"/>
+      <Separator/>
+      <Action name="mode_chat"/>
+      <Action name="mode_image"/>
+      <Action name="mode_speech"/>
+      <Separator/>
+      <Action name="service_refresh"/>
+    </Menu>
+  </MenuBar>
+  <ToolBar name="mainToolBar" fullWidth="true" iconText="icononly" noMerge="1">
+    <text>Main Toolbar</text>
+    <Action name="file_new"/>
+    <Action name="chat_attach"/>
+    <Separator/>
+    <Action name="backend_select"/>
+    <Action name="mode_select"/>
+    <Action name="model_select"/>
+    <Action name="service_refresh"/>
+  </ToolBar>
+</kpartgui>
