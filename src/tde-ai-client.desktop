@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=TDE AI Client
+GenericName=AI Chat Client
+Comment=Chat with AI services: AI Horde, KoboldCpp and OpenAI-compatible servers
+Exec=tde-ai-client %F
+Icon=tde-ai-client
+Terminal=false
+Categories=Qt;TDE;Network;Utility;
+Keywords=ai;chat;llm;horde;koboldcpp;openai;assistant;
+X-DocPath=tde-ai-client/index.html
+X-DCOP-ServiceType=Multi

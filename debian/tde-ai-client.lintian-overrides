@@ -1,0 +1,5 @@
+# TDE (Trinity) installs everything below /opt/trinity by design.
+tde-ai-client: dir-or-file-in-opt *
+# TQt/TDE binaries never get a GNU_RELRO segment (the official khelpcenter,
+# twin, kfind ... show the same); BIND_NOW is still applied.
+tde-ai-client: hardening-no-relro [opt/trinity/bin/tde-ai-client]

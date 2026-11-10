@@ -1,0 +1,11 @@
+/build/
+/obj-*/
+/debian/.debhelper/
+/debian/tde-ai-client/
+/debian/debhelper-build-stamp
+/debian/files
+/debian/*.substvars
+/debian/*.debhelper.log
+*.deb
+*.buildinfo
+*.changes
