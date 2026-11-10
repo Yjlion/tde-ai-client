@@ -1,0 +1,138 @@
+.\" Man page for tde-ai-client
+.\" Copyright (C) 2026 tde-ai-client contributors
+.\" This page is distributed under the GNU General Public License, version 2 or later.
+.TH TDE\-AI\-CLIENT 1 "November 2026" "tde-ai-client 0.1.0" "Trinity Desktop Environment"
+.SH NAME
+tde\-ai\-client \- chat with AI services on the Trinity Desktop
+.SH SYNOPSIS
+.B tde\-ai\-client
+.RB [ \-b | \-\-backend
+.IR service ]
+.RB [ \-m | \-\-mode
+.IR mode ]
+.RB [ \-p | \-\-prompt
+.IR text ]
+.RI [ file ...]
+.RI [ "generic TDE options" ]
+.RI [ "generic TQt options" ]
+.SH DESCRIPTION
+.B tde\-ai\-client
+(TDE AI Client) is a native application for the Trinity Desktop Environment
+(TDE) for working with AI language and image models. It connects to
+.IP \(bu 2
+the
+.BR "AI Horde" ,
+a free, volunteer run service (https://aihorde.net) that needs no account;
+.IP \(bu 2
+.BR KoboldCpp
+running on the same computer or in the local network;
+.IP \(bu 2
+any service with an
+.BR "OpenAI\-compatible API" ,
+such as OpenAI, OpenRouter, Mistral, Groq, Ollama, llama.cpp or LocalAI.
+.PP
+Besides chatting, it can have images generated and text read aloud where the
+service offers that. Files can be attached to messages: text files are sent
+with every service; images, audio, video and other files are sent to
+services and models that can handle them. Conversations are saved
+automatically and can be exported as web pages or plain text.
+.PP
+Everything typed and attached is sent to the selected service. With the AI
+Horde and with cloud services that is a computer run by someone else.
+.PP
+The complete documentation is available as the
+.I TDE AI Client Handbook
+in the TDE Help Center
+.RB ( "khelpcenter help:/tde\-ai\-client" ),
+or by pressing F1 in the application.
+.SH OPTIONS
+.TP
+.BR \-b ", " \-\-backend " \fIservice\fR"
+Select the service to use:
+.BR horde ,
+.B koboldcpp
+or
+.BR openai .
+Without this option the service used last is selected.
+.TP
+.BR \-m ", " \-\-mode " \fImode\fR"
+Select what the service should do:
+.B chat
+(the default),
+.B image
+(generate an image from the text) or
+.B speech
+(read the text aloud). If the service does not offer the mode, nothing is
+sent.
+.TP
+.BR \-p ", " \-\-prompt " \fItext\fR"
+Send
+.I text
+as soon as the program has started, together with the files given.
+.TP
+.I file
+One or more files to attach to the first message.
+.TP
+.B \-\-help
+Show the options, including the generic TDE and TQt options.
+.TP
+.B \-\-version
+Show version information.
+.SH EXAMPLES
+Ask the AI Horde a question:
+.PP
+.RS
+.B tde\-ai\-client \-\-backend horde \-\-prompt \(dqWhat is the Trinity Desktop?\(dq
+.RE
+.PP
+Have a KoboldCpp server with a vision model describe a picture:
+.PP
+.RS
+.B tde\-ai\-client \-b koboldcpp \-p \(dqWhat is this?\(dq photo.jpg
+.RE
+.PP
+Generate an image:
+.PP
+.RS
+.B tde\-ai\-client \-b horde \-m image \-p \(dqa lighthouse at sunset, oil painting\(dq
+.RE
+.PP
+Start with a source file attached and type the question in the window:
+.PP
+.RS
+.B tde\-ai\-client main.cpp
+.RE
+.SH FILES
+.TP
+.I $TDEHOME/share/config/tde\-ai\-clientrc
+Settings: service addresses, API keys (unless they are kept in TDEWallet),
+generation parameters and the models chosen last. Readable by the owner
+only.
+.TP
+.I $TDEHOME/share/apps/tde\-ai\-client/conversations/
+The saved conversations, one JSON file each.
+.TP
+.I $TDEHOME/share/apps/tde\-ai\-client/media/
+Images and audio received from services, and images pasted from the
+clipboard.
+.PP
+.B TDEHOME
+defaults to
+.IR ~/.trinity .
+.SH ENVIRONMENT
+.TP
+.B TDEHOME
+The directory holding the user's TDE settings and data.
+.PP
+Network access goes through the TDE I/O framework: proxy settings are those
+configured in the TDE Control Centre.
+.SH BUGS
+Report bugs at https://github.com/Yjlion/tde\-ai\-client/issues.
+.SH SEE ALSO
+.BR khelpcenter (1)
+.PP
+https://aihorde.net, https://github.com/LostRuins/koboldcpp
+.SH AUTHORS
+tde\-ai\-client contributors. The program was largely written with the help
+of an AI coding assistant and is provided as is, without any warranty.
+It is not affiliated with the AI Horde, KoboldCpp or OpenAI.
