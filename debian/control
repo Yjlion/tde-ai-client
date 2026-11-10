@@ -1,0 +1,35 @@
+Source: tde-ai-client
+Section: net
+Priority: optional
+Maintainer: tde-ai-client contributors <noreply@github.com>
+Build-Depends: debhelper-compat (= 13),
+               cmake,
+               tde-cmake,
+               tdelibs14-trinity-dev,
+               libtqt3-mt-dev,
+               tqt3-dev-tools,
+               libtqtinterface-dev
+Standards-Version: 4.7.0
+Homepage: https://github.com/Yjlion/tde-ai-client
+Vcs-Browser: https://github.com/Yjlion/tde-ai-client
+Vcs-Git: https://github.com/Yjlion/tde-ai-client.git
+Rules-Requires-Root: no
+
+Package: tde-ai-client
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: khelpcenter-trinity
+Description: AI chat client for the Trinity Desktop Environment
+ TDE AI Client is a native Trinity (TDE) application for talking to AI
+ language and image models.
+ .
+ It connects to the free, volunteer run AI Horde, to a KoboldCpp server on
+ the same computer or in the local network, and to any service with an
+ OpenAI-compatible API (OpenAI, OpenRouter, Ollama, llama.cpp and others).
+ .
+ Besides chatting it can have images generated and text read aloud. Files
+ can be attached to messages: text, images, audio, video and other files
+ are sent to the services and models that can handle them. Conversations
+ are saved and can be exported.
+ .
+ This program is not affiliated with any of the services it connects to.

@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CXXFLAGS_MAINT_APPEND = -Wall
+
+%:
+	dh $@ --buildsystem=cmake
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DCMAKE_INSTALL_PREFIX=/opt/trinity \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+		-DBUILD_ALL=ON \
+		-DCMAKE_EXE_LINKER_FLAGS="$(shell dpkg-buildflags --get LDFLAGS)"
+
+# TDE lives in /opt/trinity; let dh_shlibdeps find its libraries.
+override_dh_shlibdeps:
+	dh_shlibdeps -l/opt/trinity/lib
